@@ -46,4 +46,12 @@ function displayappointments(appointments) {
         AppointmentsList.appendChild(appointmentCard);
     });
 }
+function accept(id,status){
+	 fetch(`http://localhost:8080/appointments/${id}/${status}`)
+        .then(response => response.json())
+        .then(appointments => {
+            displayappointments(records);
+        })
+        .catch(error => console.error("Error accepting appointment:", error));
+}
 
