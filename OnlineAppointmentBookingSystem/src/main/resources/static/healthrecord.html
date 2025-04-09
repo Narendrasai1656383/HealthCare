@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li id="viewdoctors"><a href="doctorviewr.html">View-doctors</a><li>
+            <li id="update"><a href="updateprofile">Update-profile</a></li>
+   			<li id="logout"><a href="logout.html" id="logout">Logout</a></li>	
+        </ul>
+    </nav>
+    <form id="addhealthrecordForm">
+        <input type="text" id="diagnosis" placeholder="diagnosis" required>
+        <input type="text" id="prescription" placeholder="prescription" required>
+        <button type="submit">Add Record</button>
+    </form>
+    <h2>Health Records</h2>
+    <div id="recordList"></div>
+    <script src="js/addhealthrecord.js"></script>
+</body>
+</html>
