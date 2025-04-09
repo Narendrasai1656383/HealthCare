@@ -17,7 +17,10 @@ public class ControllerLoggingAspect {
     @Pointcut("within(@org.springframework.web.bind.annotation.RestController *)")
     public void restControllerMethods() {}
 
-    @Around("restControllerMethods()")
+    @Pointcut("within(@org.springframework.web.bind.annotation.RestControllerAdvice *)")
+    public void restControllerAdviceMethods() {}
+    
+    @Around("restControllerMethods() ||  || restControllerAdviceMethods()")
     public Object logRequestAndResponse(ProceedingJoinPoint joinPoint) throws Throwable {
         String method = joinPoint.getSignature().toShortString();
         Object[] args = joinPoint.getArgs();
