@@ -60,7 +60,7 @@ button:hover {
     background-color: #218838;
 }
 
-#productList, #orderList {
+#AppointmentsList, #appointmentsList, #doctorsList, #recordList{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

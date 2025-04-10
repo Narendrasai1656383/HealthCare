@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .then(response => {
                 if (!response.ok) {
-                    return response.jsom().then(text => Promise.reject(text));
+                    return response.json().then(text => Promise.reject(text));
                 }
                 return response.json();
             })
