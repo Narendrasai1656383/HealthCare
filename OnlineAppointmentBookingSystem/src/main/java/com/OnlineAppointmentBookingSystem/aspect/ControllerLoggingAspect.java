@@ -1,4 +1,4 @@
-
+package com.OnlineAppointmentBookingSystem.aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -20,7 +20,7 @@ public class ControllerLoggingAspect {
     @Pointcut("within(@org.springframework.web.bind.annotation.RestControllerAdvice *)")
     public void restControllerAdviceMethods() {}
     
-    @Around("restControllerMethods() ||  || restControllerAdviceMethods()")
+    @Around("restControllerMethods() || restControllerAdviceMethods()")
     public Object logRequestAndResponse(ProceedingJoinPoint joinPoint) throws Throwable {
         String method = joinPoint.getSignature().toShortString();
         Object[] args = joinPoint.getArgs();

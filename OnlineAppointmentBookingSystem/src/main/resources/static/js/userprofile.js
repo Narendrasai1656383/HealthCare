@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const isActive = localStorage.getItem("isActive");
     const logoutBtn = document.getElementById("logout");
 
-    if (logoutBtn && isActive !== "yes") {
+    if (isActive !== "yes") {
+		alert("Need to login");
+		window.location.replace("login.html");
         logoutBtn.style.setProperty("display", "none", "important");
         console.log("Logout hidden because isActive is not 'yes'");
     }

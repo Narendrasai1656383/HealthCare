@@ -1,6 +1,15 @@
 const API_BASE_URL = "http://localhost:8080/users";
 
 document.addEventListener("DOMContentLoaded", () => {
+	const isActive = localStorage.getItem("isActive");
+	    const logoutBtn = document.getElementById("logout");
+
+	    if (logoutBtn && isActive !== "yes") {
+			alert("Need to login");
+					window.location.replace("login.html");
+	        logoutBtn.style.setProperty("display", "none", "important");
+	        console.log("Logout hidden because isActive is not 'yes'");
+	    }
     const loginForm = document.getElementById("loginForm");
     const registerForm = document.getElementById("registerForm");
 
@@ -51,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			const phone=document.getElementById("phone").value;
 			const gender=document.getElementById("gender").value;
 
-            fetch(`${API_BASE_URL}/register`, {
+            fetch(`${API_BASE_URL}/update`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name, email, password ,role ,phone ,gender})
@@ -63,11 +72,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 return response.json();
             })
             .then(result => {
-                alert("Registerd successfully"); 
+                alert("Updated successfully"); 
 				window.location.replace("login.html");
             })
             .catch(error => {
-                console.error("Registration error:", error);
+                console.error("Updation error:", error);
                 alert(error);
             });
         });
