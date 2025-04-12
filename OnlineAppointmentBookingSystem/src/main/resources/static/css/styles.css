@@ -67,7 +67,7 @@ button:hover {
     margin-top: 20px;
 }
 
-.product-card, .order-item {
+.record-card, .doctor-card {
     background: white;
     padding: 15px;
     margin: 10px;
@@ -77,11 +77,11 @@ button:hover {
     text-align: left;
 }
 
-.product-card button {
+.record-card button {
     width: 100%;
     background-color: #007bff;
 }
 
-.product-card button:hover {
+.record-card button:hover {
     background-color: #0056b3;
 }

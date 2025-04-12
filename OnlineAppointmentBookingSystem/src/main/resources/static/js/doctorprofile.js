@@ -5,8 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const logoutBtn = document.getElementById("logout");
 
     if (logoutBtn && isActive !== "yes") {
-		alert("Need to login");
-				window.location.replace("login.html");
+		
         logoutBtn.style.setProperty("display", "none", "important");
         console.log("Logout hidden because isActive is not 'yes'");
     }
@@ -34,6 +33,14 @@ function displayappointments(appointments) {
         const appointmentCard = document.createElement("div");
         appointmentCard.classList.add("record-card");
 
+        if (appointment.status !== "PENDING") {
+            appointmentCard.innerHTML = `
+                <p>ID: ${appointment.appointmentId}</p>
+                <p>BookedDate: ${appointment.date ? new Date(appointment.date).toLocaleString() : "N/A"}</p>
+                <p>TimeSlot: ${appointment.timeSlot}</p>
+                <p>Status: ${appointment.status}</p>
+            `;
+        } else {
             appointmentCard.innerHTML = `
                 <p>ID: ${appointment.appointmentId}</p>
                 <p>BookedDate: ${appointment.date ? new Date(appointment.date).toLocaleString() : "N/A"}</p>
@@ -41,6 +48,7 @@ function displayappointments(appointments) {
                 <p>Status: ${appointment.status}</p>
                 <button onclick="accept(${appointment.appointmentId}, 'Booked')">Accept Appointment</button>
             `;
+        }
 
         AppointmentsList.appendChild(appointmentCard);
     });
