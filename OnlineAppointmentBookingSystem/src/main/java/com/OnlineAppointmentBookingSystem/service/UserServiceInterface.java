@@ -14,4 +14,5 @@ public interface UserServiceInterface {
 	User login(LoginRequest loginRequest) throws UserNotFoundException;
 	User updateProfile(UserRequest userRequest) throws UserNotFoundException;
 	List<User> getAllDoctors();
+	User getPatientDetails(Long id);
 }

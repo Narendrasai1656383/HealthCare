@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetchHealthRecords();
+    
 
     const isActive = localStorage.getItem("isActive");
     const logoutBtn = document.getElementById("logout");
@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Logout hidden because isActive is not 'yes'");
     }
 
+	fetchHealthRecords();
+	
     const addhealthrecordForm = document.getElementById("addhealthrecordForm"); 
     if (addhealthrecordForm) {
         addhealthrecordForm.addEventListener("submit", (e) => {

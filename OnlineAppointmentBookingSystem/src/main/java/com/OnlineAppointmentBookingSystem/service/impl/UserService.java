@@ -56,4 +56,8 @@ public class UserService implements UserServiceInterface {
 	public List<User> getAllDoctors() {
 		return userRepository.findByRole("DOCTOR");
 	}
+	@Override
+	public User getPatientDetails(Long id) {
+		return userRepository.findById(id).get();
+	}
 }

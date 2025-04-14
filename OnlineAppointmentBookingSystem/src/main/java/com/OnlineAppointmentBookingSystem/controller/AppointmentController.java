@@ -37,6 +37,7 @@ public class AppointmentController {
 	public List<Appointment> getByPatient(){
 		return appoiAppointmentService.getAppointmentsByUserId(((User)(httpSession.getAttribute("userLoggedIn"))).getId());
 	}
+	@SuppressWarnings("unchecked")
 	@PutMapping("/{id}/{status}")
 	@RequiredLogin
 	public ResponseEntity<Appointment> updateStatus(@PathVariable(name = "id") Long id,@PathVariable(name = "status") String status) {

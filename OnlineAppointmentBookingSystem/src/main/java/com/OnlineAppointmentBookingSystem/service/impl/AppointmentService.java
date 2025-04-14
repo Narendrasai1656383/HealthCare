@@ -34,10 +34,11 @@ public class AppointmentService implements AppointmentServiceInterface{
 
 	@Override
 	public List<Appointment> getAppointmentsByUserId(Long id) {
-		if((userRepository.findById(id)).get().getRole().equals("DOCTOR")) {
-			return appointmentRepository.findByDoctorId(id);
+		User user=(userRepository.findById(id)).get();
+		if(user.getRole().equals("DOCTOR")) {
+			return appointmentRepository.findByDoctor(user);
 		}
-		return appointmentRepository.findByPatientId(id);
+		return appointmentRepository.findByPatient(user);
 	}
 
 	@Override

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetchappointments();
+    
 
     const isActive = localStorage.getItem("isActive");
     const logoutBtn = document.getElementById("logout");
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         logoutBtn.style.setProperty("display", "none", "important");
         console.log("Logout hidden because isActive is not 'yes'");
     }
-
+	fetchappointments();
 });
 
 function fetchappointments() {
@@ -39,6 +39,7 @@ function displayappointments(appointments) {
                 <p>BookedDate: ${appointment.date ? new Date(appointment.date).toLocaleString() : "N/A"}</p>
                 <p>TimeSlot: ${appointment.timeSlot}</p>
                 <p>Status: ${appointment.status}</p>
+				<button onclick="viewUserProfile(${appointment.patientId})">View User profile</button>
             `;
         } else {
             appointmentCard.innerHTML = `
@@ -46,6 +47,7 @@ function displayappointments(appointments) {
                 <p>BookedDate: ${appointment.date ? new Date(appointment.date).toLocaleString() : "N/A"}</p>
                 <p>TimeSlot: ${appointment.timeSlot}</p>
                 <p>Status: ${appointment.status}</p>
+				<button onclick="viewUserProfile(${appointment.patientId})">View User profile</button>
                 <button onclick="accept(${appointment.appointmentId}, 'Booked')">Accept Appointment</button>
             `;
         }
@@ -65,3 +67,6 @@ function accept(id,status){
         .catch(error => console.error("Error accepting appointment:", error));
 }
 
+function viewUserProfile(patientId){
+	window.location.href= `patientprofile.html?data=${encodeURIComponent(patientId)}`;
+}

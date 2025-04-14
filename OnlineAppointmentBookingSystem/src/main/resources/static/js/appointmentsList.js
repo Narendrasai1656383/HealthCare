@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    appointmentviwer();
+    
 
     const isActive = localStorage.getItem("isActive");
     const logoutBtn = document.getElementById("logout");
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         logoutBtn.style.setProperty("display", "none", "important");
         console.log("Logout hidden because isActive is not 'yes'");
     }
-	
+	appointmentviwer();
 });
 
 function appointmentviwer() {
