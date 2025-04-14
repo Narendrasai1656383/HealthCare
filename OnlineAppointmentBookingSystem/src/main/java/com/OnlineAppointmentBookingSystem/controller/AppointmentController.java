@@ -34,7 +34,7 @@ public class AppointmentController {
 	}
 	@GetMapping("/all")
 	@RequiredLogin
-	public List<Appointment> getByPatient(){
+	public List<Appointment> getAppointments(){
 		return appoiAppointmentService.getAppointmentsByUserId(((User)(httpSession.getAttribute("userLoggedIn"))).getId());
 	}
 	@SuppressWarnings("unchecked")
